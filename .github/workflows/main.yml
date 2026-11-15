@@ -29,6 +29,11 @@ jobs:
         with:
           gradle-version: '8.13'
 
+      - name: Extract project ZIP
+        run: |
+          unzip -o HBG-project.zip -d .
+          find . -maxdepth 3 -name settings.gradle.kts
+    
       - name: Build Debug APK
         run: gradle :app:assembleDebug
 
